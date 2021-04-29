@@ -103,6 +103,12 @@ public class GLRender implements GLSurfaceView.Renderer {
 
         MatrixHelper.perspectiveM(mProjectionMat, 45, (float) width / (float) height, 1, 10);
 
+        // OpenGL向量是竖式，坐标变换是变换矩阵左乘向量，但实际的变换顺序要从右想做看（从后向前看）所以下列变换的实际顺序是：
+        // 1. 绕X轴旋转-60°
+        // 2. 沿屏幕z轴正向（屏幕指向屏幕外方向）移动2.5
+        // 3. 做透视投影变换
+        // 注意：物体坐标系（手机坐标）采用的是左手坐标系，OpenGL的坐标系是右手坐标系，所以在第2步向屏幕外移动投影变换后即向屏幕内移动
+        // 也是由于左右坐标系的差异，OpenGL的正交投影和透视投影变换与z轴坐标先关的变换都是负数
         Matrix.setIdentityM(mModelMat, 0);
         Matrix.translateM(mModelMat, 0, 0, 0, -2.5f);
         Matrix.rotateM(mModelMat, 0, -60, 1, 0, 0);
