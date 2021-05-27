@@ -48,7 +48,7 @@ public class GLRender implements GLSurfaceView.Renderer {
     public void onSurfaceChanged(GL10 gl, int width, int height) {
         GLES30.glViewport(0, 0, width, height);
 
-        Utils.perspectiveM(mProjectionMat, 45, (float) width / (float) height, 0.9f, 10);
+        Utils.perspectiveM(mProjectionMat, 45, (float) width / (float) height, 1f, 10);
     }
 
     @Override

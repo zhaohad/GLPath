@@ -12,7 +12,6 @@ public class SkyBoxObj {
     private SkyBoxProgram mProgram;
     private FloatBuffer mVertexes;
     private ByteBuffer mIndexes;
-    private ByteBuffer mLines;
 
     private static final int CNT_COMPONENTS_PER_VERTEX = 3;
     private static final float CUBE_LEN = 1f;

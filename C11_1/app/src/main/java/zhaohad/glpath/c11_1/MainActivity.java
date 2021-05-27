@@ -14,7 +14,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         Context context = getBaseContext();
 
-
         mGLView = new GLSurfaceView(context);
         mGLView.setEGLContextClientVersion(3);
         mGLRender = new GLRender(mGLView, context);
